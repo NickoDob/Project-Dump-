@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+ {% block content %}
+<h1> Проект "Dump" </h1>
+<p><form class="form-inline" method="GET">
+    <input class="form-control mr-sm-2" type="search" placeholder="Домен" name="dom">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+</form>
+</p>
+<p><form class="form-inline" method="GET">
+    <input class="form-control mr-sm-2" type="search" placeholder="Хэш" name="hash">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+</form>
+</p>
+{% for post in results %}
+<div class="card">
+    <div class="card mb-4">
+       Id: {{ post.id }}
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+           IncludeTime: {{ post.includeTime }}
+        </p>
+        <p class="card-text">
+           EntryType: {{ post.entryType }}
+        </p>
+        <p class="card-text">
+           BlockType: {{ post.blockType }}
+        </p>
+        <p class="card-text">
+           Hash: {{ post.hash }}
+        </p>
+        <p class="card-text">
+           Date: {{ post.date }}
+        </p>
+        <p class="card-text">
+           Number: {{ post.number }}
+        </p>
+        <p class="card-text">
+           Org: {{ post.org }}
+        </p>
+        <p class="card-text">
+           URL: {{ post.url }}
+        </p>
+        <p class="card-text">
+           TS: {{ post.ts }}
+        </p>
+        {% for post in res_t %}
+        <p class="card-text">
+           Temp: {{ post.temp }}
+        </p>
+        {% endfor %}
+        {% for post in res_k %}
+        <p class="card-text">
+           USD: {{ post.kurs }}
+        </p>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+
+
